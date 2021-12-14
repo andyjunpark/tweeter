@@ -21,51 +21,6 @@ body {
   font-family: 'Source Sans Pro', sans-serif;
 }
 
-main {
-  display: flex;
-  background-color: #f4f1ec;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  align-content:center;
-  margin: 0 5% 0 5%;
-}
-
-.new-tweet {
-  flex-wrap: wrap;
-  display:flex;
-  flex-direction: row;
-  align-items: center;
-}
-
-.new-tweet form, label, textarea {
-  width:100%;
-}
-
-.new-tweet textarea {
-  background-color: #f4f1ec;
-  border: 0.2em;
-  border-style: none none solid none; 
-  border-color: #545149;;
-  overflow: auto; 
-  resize: none;
-}
-
-.button-counter {
-  display: flex;
-  font-family: 'Bungee', cursive;
-  justify-content: space-between;
-}
-
-.button-counter button {
-  background-color: #4056A1;
-  font-family: 'Bungee', cursive;
-  border: none;
-  color: white;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-}
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
