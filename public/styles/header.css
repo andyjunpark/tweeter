@@ -5,6 +5,7 @@ header {
   z-index: -1;
   flex-direction: column;
   align-items: center;
-  height:400px;
+  height:520px;
+  padding-top:120px;
   width:100%;
 }

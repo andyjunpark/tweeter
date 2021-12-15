@@ -4,13 +4,13 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  align-content:center;
+  align-content: center;
   margin: 0 5% 0 5%;
 }
 
 .new-tweet {
   flex-wrap: wrap;
-  display:flex;
+  display: flex;
   flex-direction: row;
   align-items: center;
 }
