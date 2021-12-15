@@ -24,6 +24,7 @@ main {
   border: 0.2em;
   border-style: none none solid none; 
   border-color: #545149;;
+  outline: none;
   overflow: auto; 
   resize: none;
 }
