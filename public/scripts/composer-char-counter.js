@@ -1,5 +1,4 @@
 $(document).ready(function() {
-  // --- our code goes here ---
   console.log('ready!');
   $('#tweet-text').on('keyup', function() {
     let maxLength = 140;
