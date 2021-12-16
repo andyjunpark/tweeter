@@ -56,13 +56,23 @@ $(document).ready(function() {
   $(function() {
     const $form = $('#tweet-form');
     $form.submit(function(event) {
-      alert( "Form submitted. Performing ajax call...");
+      console.log("Form submitted. Performing ajax call...");
       event.preventDefault();
       const formData = $(this).serialize();
-      $.ajax('./tweets', {data: formData, method:"POST"})
-      .then(function() {
-        console.log('Successfully posted: ', formData);
-      });
+      console.log(formData);
+      console.log(formData.length);
+      const tweetLength = $('#tweet-text').val().length;
+      if (tweetLength > 140) {
+        alert("Maximum tweet is 140 characters");
+      }
+      else if (tweetLength === "" || tweetLength === null || tweetLength === 0) {
+        alert("Minimum tweet is 1 characters");
+      } else {
+        $.ajax('./tweets', {data: formData, method: "POST"})
+        .then(function() {
+          console.log('Successfully posted: ', formData);
+        });
+      };
     });
   });
 });
