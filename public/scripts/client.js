@@ -66,15 +66,35 @@ $(document).ready(function() {
       // Check for character length
       if (tweetLength > 140) {
         alert("Maximum tweet is 140 characters");
+        // Error message popup
+        $().msgpopup({
+          text: 'Maximum tweet is 140 characters!',
+          type: 'error',
+          time: 4000,
+          x: true,
+        });
       }
       else if (tweetLength === "" || tweetLength === null || tweetLength === 0) {
-        alert("Minimum tweet is 1 characters");
+        // Alert message popup
+        $().msgpopup({
+          text: 'Minimum tweet is 1 characters!',
+          type: 'alert',
+          time: 4000, 
+          x: true,
+        });
       } else {
         // AJAX POST and then reload tweets without refreshing
         $.ajax('./tweets', {data: formData, method: "POST"})
         .then(function() {
           loadtweets();
           console.log('Successfully posted: ', formData);
+          // Success message popup
+          $().msgpopup({
+            text: 'Post successful',
+            type: 'success',
+            time: 4000, 
+            x: true,
+          });
         });
       };
     });
