@@ -5,6 +5,12 @@
  */
 $(document).ready(function() {
 
+  const escape = function (str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
+
   const createTweetElement = function(tweet) {
     let timestamp = timeago.format(tweet.created_at);
     let $tweet = $(
@@ -19,7 +25,7 @@ $(document).ready(function() {
             <b>${tweet.user.handle}</b>
           </div>
       </header>
-      <p>${tweet.content.text}</p>
+      <p>${escape(tweet.content.text)}</p>
       <footer>
         <time class="timestamp">${timestamp}</time>
           <div class="tweet-icons">
