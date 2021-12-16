@@ -31,20 +31,20 @@ const data = [
 
 
 const createTweetElement = function(tweet) {
-  let timestamp = timeago.format(tweetData.created_at);
+  let timestamp = timeago.format(tweet.created_at);
   let $tweet = $(
   `
   <article>
     <header>
         <div id="profile-name">
-          <img src="${tweetData.user.avatars}">
-          ${tweetData.user.name}
+          <img src="${tweet.user.avatars}">
+          ${tweet.user.name}
         </div>
         <div id="profile-id">
-          <b>${tweetData.user.handle}</b>
+          <b>${tweet.user.handle}</b>
         </div>
     </header>
-    <p>${tweetData.content.text}</p>
+    <p>${tweet.content.text}</p>
     <footer>
       <time class="timestamp">${timestamp}</time>
         <div class="tweet-icons">
@@ -58,12 +58,14 @@ const createTweetElement = function(tweet) {
   return $tweet;
 };
 
-$('#tweets-container').append($tweet);
-
 const renderTweets = function(tweets) {
   // loops through tweets
   // calls createTweetElement for each tweet
   // takes return value and appends it to the tweets container
+  for (let tweet of tweets) {
+    createTweetElement(tweet);
+    $('#tweets-container').append(tweet);
+  }
 };
 
 renderTweets(data);
