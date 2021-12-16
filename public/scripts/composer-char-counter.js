@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  console.log('ready!');
+  // render changing character counter
   $('#tweet-text').on('keyup', function() {
     let maxLength = 140;
     let tweetLength = $(this).val().length;

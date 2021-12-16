@@ -29,7 +29,7 @@ nav .writenew i {
 }
 
 @media only screen and (max-width: 1024px) {
-  /* Write CSS rules that target Tablets screen sizes downwards - including smartphones */
+  /* Change nav on smaller screens */
   nav {
     background-color: transparent;
     position:absolute;
