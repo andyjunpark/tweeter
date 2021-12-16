@@ -59,8 +59,6 @@ $(document).ready(function() {
       console.log("Form submitted. Performing ajax call...");
       event.preventDefault();
       const formData = $(this).serialize();
-      console.log(formData);
-      console.log(formData.length);
       const tweetLength = $('#tweet-text').val().length;
       if (tweetLength > 140) {
         alert("Maximum tweet is 140 characters");
