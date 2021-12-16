@@ -69,3 +69,7 @@ const renderTweets = function(tweets) {
 };
 
 renderTweets(data);
+
+const $tweetForm = $('#tweet-form');
+
+$tweetForm.submit()
