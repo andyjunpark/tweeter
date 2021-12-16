@@ -27,3 +27,11 @@ nav .writenew i {
   justify-content: center;
   color: red;
 }
+
+@media only screen and (max-width: 1024px) {
+  /* Write CSS rules that target Tablets screen sizes downwards - including smartphones */
+  nav {
+    background-color: transparent;
+    position:absolute;
+  }
+}

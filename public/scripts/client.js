@@ -38,22 +38,37 @@ $(document).ready(function() {
 
   // Renders new tweets
   const renderTweets = function(tweets) {
+    $(".tweet").empty();
     for (let tweet of tweets) {
       const $newTweet = createTweetElement(tweet);
       $('.tweet').prepend($newTweet);
     };
   };
- 
-  // Loads tweets
-  const loadtweets = function() {
-    $.ajax('/tweets', { method: 'GET'})
-    .then(function (moreTweets) {
-      console.log('Successfully get: ', moreTweets);
-      renderTweets(moreTweets);
-    });
-  };
 
-  loadtweets();
+  renderTweets([
+    {
+      "user": {
+        "name": "Newton",
+        "avatars": "https://i.imgur.com/73hZDYK.png",
+        "handle": "@SirIsaac"
+      },
+      "content": {
+        "text": "If I have seen further it is by standing on the shoulders of giants"
+      },
+      "created_at": 1639501947242
+    },
+    {
+      "user": {
+        "name": "Descartes",
+        "avatars": "https://i.imgur.com/nlhLi3I.png",
+        "handle": "@rd"
+      },
+      "content": {
+        "text": "Je pense , donc je suis"
+      },
+      "created_at": 1639588347242
+    }
+  ])
 
   // Event listener for user tweet submissions
   $(function() {
@@ -85,9 +100,9 @@ $(document).ready(function() {
         // AJAX POST and then reload tweets without refreshing
         $.ajax('./tweets', {data: formData, method: "POST"})
         .then(function() {
-          loadtweets();
           console.log('Successfully posted: ', formData);
           // Success message popup
+          loadtweets();
           $().msgpopup({
             text: 'Post successful',
             type: 'success',
@@ -98,4 +113,13 @@ $(document).ready(function() {
       };
     });
   });
+
+    // Loads tweets
+    const loadtweets = function() {
+      $.ajax('/tweets', { method: 'GET'})
+      .then(function (moreTweets) {
+        console.log('Successfully get: ', moreTweets);
+        renderTweets(moreTweets);
+      });
+    };
 });

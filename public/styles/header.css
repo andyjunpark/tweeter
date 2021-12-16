@@ -4,8 +4,16 @@ header {
   background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
   z-index: -1;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  height:520px;
-  padding-top:120px;
-  width:100%;
+  width:30%;
+}
+
+@media only screen and (max-width: 1024px) {
+  /* Write CSS rules that target Tablets screen sizes downwards - including smartphones */
+  header {
+    height:520px;
+    padding-top:120px;
+    width:100%;
+  }
 }

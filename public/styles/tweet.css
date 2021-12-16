@@ -1,10 +1,18 @@
 .tweet {
-  width:90%;
-  margin: 0 5% 0 5%;
+  width:100%;
+  display: flex;
+  background-color: #f4f1ec;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
 }
 
 .tweet article {
   margin: 5%;
+  width: 100%;
+  min-width:500px;
+  max-width:900px;
   border: 0.2em;
   border-style: solid solid solid solid; 
   border-color: #545149;
@@ -31,6 +39,7 @@
 
 #profile-name img {
   margin-right:10px;
+  max-width:40px;
 }
 
 #profile-id {
@@ -66,4 +75,7 @@ footer i {
 footer i:hover {
   color: orange;
   opacity: 50%;
+}
+
+@media only screen and (max-width: 1024px) {
 }
