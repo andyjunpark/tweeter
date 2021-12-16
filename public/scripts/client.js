@@ -38,8 +38,8 @@ $(document).ready(function() {
     // calls createTweetElement for each tweet
     // takes return value and appends it to the tweets container
     for (let tweet of tweets) {
-      createTweetElement(tweet);
-      $('#tweets-container').append(tweet);
+      const $newTweet = createTweetElement(tweet);
+      $('.tweet').prepend($newTweet);
     };
   };
  
@@ -68,6 +68,7 @@ $(document).ready(function() {
       } else {
         $.ajax('./tweets', {data: formData, method: "POST"})
         .then(function() {
+          loadtweets();
           console.log('Successfully posted: ', formData);
         });
       };
