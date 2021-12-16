@@ -65,7 +65,6 @@ $(document).ready(function() {
       const tweetLength = $('#tweet-text').val().length;
       // Check for character length
       if (tweetLength > 140) {
-        alert("Maximum tweet is 140 characters");
         // Error message popup
         $().msgpopup({
           text: 'Maximum tweet is 140 characters!',
