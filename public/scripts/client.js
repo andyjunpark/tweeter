@@ -1,16 +1,13 @@
-/*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
- */
 $(document).ready(function() {
 
+  // XSS to prevent malicious attacks
   const escape = function (str) {
     let div = document.createElement("div");
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
   };
 
+  // Creates tweets in a templeate
   const createTweetElement = function(tweet) {
     let timestamp = timeago.format(tweet.created_at);
     let $tweet = $(
@@ -39,16 +36,15 @@ $(document).ready(function() {
     return $tweet;
   };
 
+  // Renders new tweets
   const renderTweets = function(tweets) {
-    // loops through tweets
-    // calls createTweetElement for each tweet
-    // takes return value and appends it to the tweets container
     for (let tweet of tweets) {
       const $newTweet = createTweetElement(tweet);
       $('.tweet').prepend($newTweet);
     };
   };
  
+  // Loads tweets
   const loadtweets = function() {
     $.ajax('/tweets', { method: 'GET'})
     .then(function (moreTweets) {
@@ -59,6 +55,7 @@ $(document).ready(function() {
 
   loadtweets();
 
+  // Event listener for user tweet submissions
   $(function() {
     const $form = $('#tweet-form');
     $form.submit(function(event) {
@@ -66,12 +63,14 @@ $(document).ready(function() {
       event.preventDefault();
       const formData = $(this).serialize();
       const tweetLength = $('#tweet-text').val().length;
+      // Check for character length
       if (tweetLength > 140) {
         alert("Maximum tweet is 140 characters");
       }
       else if (tweetLength === "" || tweetLength === null || tweetLength === 0) {
         alert("Minimum tweet is 1 characters");
       } else {
+        // AJAX POST and then reload tweets without refreshing
         $.ajax('./tweets', {data: formData, method: "POST"})
         .then(function() {
           loadtweets();
