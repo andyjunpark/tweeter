@@ -70,6 +70,11 @@ $(document).ready(function() {
     }
   ])
 
+  // Clears textarea 
+  const clearText = function() {
+    document.getElementById("tweet-text").value = "";
+  }
+
   // Event listener for user tweet submissions
   $(function() {
     const $form = $('#tweet-form');
@@ -103,6 +108,7 @@ $(document).ready(function() {
           console.log('Successfully posted: ', formData);
           // Success message popup
           loadtweets();
+          clearText();
           $().msgpopup({
             text: 'Post successful',
             type: 'success',
@@ -122,4 +128,6 @@ $(document).ready(function() {
         renderTweets(moreTweets);
       });
     };
+
+    loadtweets();
 });

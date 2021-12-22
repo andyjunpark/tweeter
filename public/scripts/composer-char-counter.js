@@ -6,6 +6,8 @@ $(document).ready(function() {
     $('.counter').text(maxLength - tweetLength);
     if (tweetLength > 140) {
       $('.counter').css("color", "red");
+    } else {
+      $('.counter').css("color", "#545149");
     }
   })
 });
