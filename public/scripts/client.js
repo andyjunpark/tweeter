@@ -109,6 +109,7 @@ $(document).ready(function() {
           // Success message popup
           loadtweets();
           clearText();
+          $('.counter').val(140);
           $().msgpopup({
             text: 'Post successful',
             type: 'success',
