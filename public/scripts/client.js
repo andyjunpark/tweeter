@@ -18,7 +18,7 @@ $(document).ready(function() {
             <img src="${tweet.user.avatars}">
             ${tweet.user.name}
           </div>
-          <div id="profile-id">
+          <div class="float-right" id="profile-id">
             <b>${tweet.user.handle}</b>
           </div>
       </header>
